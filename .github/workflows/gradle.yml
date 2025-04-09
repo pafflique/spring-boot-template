@@ -27,7 +27,7 @@ jobs:
       run: chmod +x ./gradlew
 
     - name: Build with Gradle Wrapper
-      run: ./gradlew build test --scan
+      run: ./gradlew build test
 
     - name: Publish Test Results
       uses: EnricoMi/publish-unit-test-result-action@v2
