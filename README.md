@@ -4,12 +4,9 @@
 
 - Spring Boot
    - Spring Data
-   - @Scheduled
    - Spring Web
    - Spring Doc
-   - Spring Security & Oaath
    - API Tests
-   - Spring Dev Tools
    - Input Validation
 - Java 21
    - Use Records
