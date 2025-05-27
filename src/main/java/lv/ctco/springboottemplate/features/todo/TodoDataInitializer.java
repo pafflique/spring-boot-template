@@ -2,12 +2,16 @@ package lv.ctco.springboottemplate.features.todo;
 
 import java.time.Instant;
 import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class TodoDataInitializer {
+
+  private static final Logger log = LoggerFactory.getLogger(TodoDataInitializer.class);
 
   @Bean
   CommandLineRunner initDatabase(TodoRepository todoRepository) {
@@ -57,7 +61,7 @@ public class TodoDataInitializer {
                   now));
 
       todoRepository.saveAll(todos);
-      System.out.println("Initialized database with " + todos.size() + " todo items");
+      log.info("Initialized database with {} todo items", todos.size());
     };
   }
 }
