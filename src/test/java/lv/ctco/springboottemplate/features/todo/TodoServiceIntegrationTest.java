@@ -6,16 +6,22 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.TestConstructor;
 
 @SpringBootTest
 @Disabled
+@TestConstructor(autowireMode = TestConstructor.AutowireMode.ALL)
 class TodoServiceIntegrationTest {
 
-  @Autowired private TodoRepository todoRepository;
+  private TodoRepository todoRepository;
 
-  @Autowired private TodoService todoService;
+  private TodoService todoService;
+
+  public TodoServiceIntegrationTest(TodoRepository todoRepository, TodoService todoService) {
+    this.todoRepository = todoRepository;
+    this.todoService = todoService;
+  }
 
   @BeforeEach
   void setup() {

@@ -8,7 +8,7 @@ import com.tngtech.archunit.lang.ArchRule;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-public class FeatureTest {
+public class FeatureNamingConventionTest {
 
   protected static JavaClasses importedClasses;
 
@@ -33,6 +33,8 @@ public class FeatureTest {
             .haveSimpleNameEndingWith("Repository")
             .orShould()
             .haveSimpleNameStartingWith("Todo")
+            .orShould()
+            .haveSimpleNameStartingWith("Greeting")
             .because(
                 """
             The 'features' package should contain only top-level components like:
@@ -40,6 +42,9 @@ public class FeatureTest {
             - *Service
             - *Repository
             - *Todo
+
+            Reference:
+            https://www.baeldung.com/spring-component-repository-service
 
             Inner classes (like CreateTodoRequest) are ignored,
             since they're scoped to their parent and follow a different purpose.

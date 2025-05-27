@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-public class ControllerTest {
+public class ControllerAnnotationTest {
 
   protected static JavaClasses importedClasses;
 

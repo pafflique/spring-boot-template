@@ -5,6 +5,29 @@ import java.util.List;
 import java.util.Optional;
 import org.springframework.stereotype.Service;
 
+/**
+ * Service layer for managing {@link Todo} items.
+ *
+ * <p>This class encapsulates business logic and acts as a bridge between the controller (HTTP
+ * layer) and the repository (data access layer).
+ *
+ * <p>Spring automatically detects this class as a service due to the {@link
+ * org.springframework.stereotype.Service} annotation and registers it as a <b>singleton bean</b> in
+ * the application context.
+ *
+ * <p>Dependencies are injected via constructor (constructor-based Dependency Injection), which
+ * promotes immutability and testability.
+ *
+ * <p>📚 Learn more:
+ *
+ * <ul>
+ *   <li><a href="https://spring.io/guides/gs/rest-service/">Spring REST Guide</a>
+ *   <li><a href="https://www.baeldung.com/spring-component-repository-service">Baeldung: Service
+ *       Component Repo Layers</a>
+ *   <li><a href="https://docs.spring.io/spring-framework/reference/core/beans/">Spring Beans &
+ *       DI</a>
+ * </ul>
+ */
 @Service
 public class TodoService {
   private final TodoRepository todoRepository;

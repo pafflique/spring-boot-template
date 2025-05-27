@@ -6,6 +6,23 @@ import java.util.List;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * REST controller for managing {@link Todo} items.
+ *
+ * <p>This class defines HTTP endpoints for interacting with the application. It receives requests,
+ * delegates business logic to {@link TodoService}, and returns responses.
+ *
+ * <p>Marked with {@link org.springframework.web.bind.annotation.RestController} and {@link
+ * org.springframework.web.bind.annotation.RequestMapping}, so that Spring can map web requests to
+ * methods.
+ *
+ * <p>📚 Learn more:
+ *
+ * <ul>
+ *   <li><a href="https://spring.io/guides/gs/rest-service/">Spring REST Guide</a>
+ *   <li><a href="https://www.baeldung.com/spring-controllers">Baeldung: Controllers</a>
+ * </ul>
+ */
 @RestController
 @RequestMapping("/api/todos")
 @Tag(name = "Todo Controller", description = "Todo management endpoints")
