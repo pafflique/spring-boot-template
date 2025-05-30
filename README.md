@@ -2,35 +2,56 @@
 
 Welcome, developer! 👋 This project is a **learning platform** for frontend devs who want to understand the Java + Spring ecosystem — through code, not slides.
 
-## ✅ What you’ll find
+## ✅ What you'll find
 
 - ✅ A working feature: **Todo**
-  - `TodoController`, `TodoService`, `TodoRepository`, `Todo` model
-  - Uses MongoDB for persistence
-  - Demonstrates Dependency Injection (DI) using constructor injection
-  - Has Swagger UI docs via springdoc-openapi
+    - `TodoController`, `TodoService`, `TodoRepository`, `Todo` model
+    - Uses MongoDB for persistence with Testcontainers for testing
+    - Demonstrates Dependency Injection (DI) using constructor injection
+    - Has Swagger UI docs via springdoc-openapi
 
 - 🧠 Learning-oriented JavaDocs with links to Spring resources
 - 🧪 **ArchUnit tests** to enforce clean architecture
-- 🔍 Functional tests to validate feature behavior
+- 🔍 Functional tests to validate feature behavior using Testcontainers
 
----
+## 🏗 Architecture
+
+This project implements **Vertical Slice Architecture (VSA)**, organizing code around features rather than technical layers. You can explore this through the **Todo** feature implementation.
+
+### Why VSA?
+
+- 🎯 Feature-focused organization
+- 🔄 Independent, full-stack slices
+- 🚀 Faster development cycles
+- 🛠 Easier maintenance
+
+Learn more about VSA:
+- [Baeldung: Vertical Slice Architecture in Java](https://www.baeldung.com/java-vertical-slice-architecture)
+- [Exploring Software Architecture: Vertical Slice](https://medium.com/@andrew.macconnell/exploring-software-architecture-vertical-slice-789fa0a09be6)
+
+### 🎯 Todo Feature Showcase
+
+The **Todo** feature demonstrates VSA principles in action:
+- Complete vertical slice from API to persistence
+- Self-contained in `features/todo` package
+- Includes dedicated tests and documentation
+- Shows proper dependency management
 
 ## 🚀 Run the app
 
-1. Make sure you have Java 21 and Docker installed
-2. Run MongoDB with Docker:
+1. Make sure you have:
+    - Java 21
+    - Docker running
 
+2. Start the app:
 ```bash
-docker run --rm -d -p 27017:27017 --name mongo mongo:6
-
-```
-Start the app
 ./gradlew bootRun
-
+```
 Open Swagger docs: http://localhost:8080/swagger-ui.html
 
-## 🧩 Your Mission: Create the `greeting` Feature
+## 📚 Learning Tasks
+
+### Task 1: Create the "Greeting" Feature
 
 Your task is to build a new Spring feature called `greeting`, and connect it to the existing `todo` feature.
 
@@ -93,3 +114,43 @@ When both tests are green and the endpoint works, **congratulations!**
 You've created a feature using Spring idioms and learned how features interact via Dependency Injection.
 
 🔥 Welcome to the backend side.
+
+### Task 2: Create the "Statistics" Feature
+
+#### 🎯 Objective
+Create a REST endpoint `/api/statistics` that provides insights about Todo items.
+
+#### 📋 Requirements
+
+**1. API Endpoint**
+- Base path: `/api/statistics`
+- Support query parameters:
+    - `from` - Start date (e.g., `2023-01-01`)
+    - `to` - End date (e.g., `2023-12-31`)
+    - `format` - Response format (`summary` or `detailed`)
+
+**2. Statistics to Include**
+- Total number of todos
+- Number of completed todos
+- Number of pending todos
+- Todos per user breakdown
+
+**3. Technical Requirements**
+- Use MongoDB aggregations for efficient data processing
+- Create DTOs for API responses
+- Implement proper error handling
+- Follow existing architectural patterns
+
+**4. Sample Response**
+```json
+{
+  "totalTodos": 10,
+  "completedTodos": 7,
+  "pendingTodos": 3,
+  "userStats": {
+    "user1": 5,
+    "user2": 3,
+    "user3": 2
+  }
+}
+```
