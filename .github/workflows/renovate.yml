@@ -21,7 +21,7 @@ jobs:
         env:
           RENOVATE_TOKEN: ${{ secrets.RENOVATE_TOKEN }}
           RENOVATE_AUTODISCOVER: true
-          RENOVATE_AUTODISCOVER_FILTER: ["ctco-dev/spring-boot-template"]
+          RENOVATE_AUTODISCOVER_FILTER: ctco-dev/spring-boot-template
           LOG_LEVEL: info
         run: |
           renovate
