@@ -4,6 +4,12 @@ on:
   workflow_dispatch:
   schedule:
     - cron: '0 0 1/7 * *'
+  push:
+    branches:
+      - main
+    paths:
+      - renovate.json
+      - .github/workflows/renovate.yml
 
 jobs:
   renovate:
@@ -22,6 +28,9 @@ jobs:
           RENOVATE_TOKEN: ${{ secrets.RENOVATE_TOKEN }}
           RENOVATE_AUTODISCOVER: true
           RENOVATE_AUTODISCOVER_FILTER: ctco-dev/spring-boot-template
+          RENOVATE_PLATFORM: github
+          RENOVATE_REPOSITORY_CACHE: enabled
+          RENOVATE_AUTOMERGE: true
           LOG_LEVEL: info
         run: |
           renovate
