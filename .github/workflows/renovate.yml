@@ -20,6 +20,8 @@ jobs:
       - name: Run Renovate
         env:
           RENOVATE_TOKEN: ${{ secrets.RENOVATE_TOKEN }}
+          RENOVATE_AUTODISCOVER: true
+          RENOVATE_REPOSITORIES: "spring-boot-template"
           LOG_LEVEL: info
         run: |
           renovate
