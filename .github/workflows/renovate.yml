@@ -1,0 +1,25 @@
+name: Renovate Dependencies Upgrade
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 1/7 * *'
+
+jobs:
+  renovate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Install Renovate
+        run: npm install -g renovate
+      - name: Run Renovate
+        env:
+          RENOVATE_TOKEN: ${{ secrets.RENOVATE_TOKEN }}
+          LOG_LEVEL: info
+        run: |
+          renovate
