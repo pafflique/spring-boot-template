@@ -30,6 +30,6 @@ jobs:
           RENOVATE_AUTODISCOVER_FILTER: ctco-dev/spring-boot-template
           RENOVATE_PLATFORM: github
           RENOVATE_AUTOMERGE: true
-          LOG_LEVEL: info
+          LOG_LEVEL: debug
         run: |
           renovate
