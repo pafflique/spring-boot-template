@@ -1,0 +1,48 @@
+{
+    "automerge": true,
+    "automergeType": "pr",
+    "enabledManagers": [
+        "gradle"
+    ],
+    "baseBranches": [
+        "main"
+    ],
+    "platformAutomerge": true,
+    "prConcurrentLimit": 1,
+    "semanticCommits": "enabled",
+    "transitiveRemediation": true,
+    "lockFileMaintenance": {
+        "enabled": true,
+        "schedule": "at any time"
+    },
+    "vulnerabilityAlerts": {
+        "enabled": true
+    },
+    "packageRules": [
+        {
+            "description": "ignore all",
+            "matchPackagePatterns": [
+                "*"
+            ],
+            "matchUpdateTypes": [
+                "major",
+                "minor",
+                "patch"
+            ],
+            "groupName": "ignore all",
+            "enabled": false
+        },
+        {
+            "description": "bump patch and lock file updates",
+            "matchPackagePatterns": [
+                "*"
+            ],
+            "matchUpdateTypes": [
+                "patch",
+                "lockFileMaintenance"
+            ],
+            "groupName": "minor and patch versions",
+            "enabled": true
+        }
+    ]
+}
