@@ -27,4 +27,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface TodoRepository extends MongoRepository<Todo, String> {
   List<Todo> findByTitleContainingIgnoreCase(String title);
+
+  List<Todo> findByCompleted(Boolean completed);
 }

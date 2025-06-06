@@ -40,6 +40,10 @@ public class TodoService {
     return todoRepository.findAll();
   }
 
+  public List<Todo> getOpenTodos() {
+    return todoRepository.findByCompleted(false);
+  }
+
   public Optional<Todo> getTodoById(String id) {
     return todoRepository.findById(id);
   }
